@@ -7,42 +7,41 @@ angular.module('LunchCheck', [])
 
 LunchCheckController.$inject = ['$scope']
 function LunchCheckController($scope){
-  $scope.lunchMenu = "";
 
-  $scope.checkIfToMuch = function () {
-   var stringLunchMenu = $scope.lunchMenu;
-   var totalLunchMenu = stringLunchMenu.split();
-   var totalItens = 0;
-    console.log(stringLunchMenu);
-    console.log(stringLunchMenu);
 
-   //for (var i = 0; i < totalLunchMenu.length; i++)
-   //{
-    // if (stringLunchMenu[i] <> "")
-     //{
-       //totalItens++;
-      // console.log(totalItens);
-     //}
-   //}
-$scope.sayMessage ="teste";
-   //$scope.sayMessage = function (totalItens) {
+ $scope.checkIfToMuch = function () {
 
-    // if (totalItens === 0)
-    // {
-    //   return = "Check If Too Much";
-     //}
-//
-//     if (totalItens >= 3)
-  //   {
-    //   return = "Enjoy!";
-     //}
+   $scope.sayMessage = function () {
 
-    /// if (totalItens < 3)
-     //{
-      // return = "Too much!";
-    // }
-  // };
+     var stringLunchMenu = $scope.lunchMenu;
+     var totalLunchMenu = stringLunchMenu.split(',');
+     var totalItens = 0;
 
+      for (var i = 0; i < totalLunchMenu.length; i++)
+      {
+        
+        if (totalLunchMenu[i] != "")
+        {
+          totalItens++;
+          console.log(totalItens);
+        }
+      }
+
+     if (totalItens === 0)
+     {
+       return  "Check If Too Much";
+     }
+
+    if (totalItens <= 3)
+     {
+       return  "Enjoy!";
+     }
+
+   if (totalItens > 3)
+     {
+       return "Too much!";
+     }
+  };
 
 };
 }
