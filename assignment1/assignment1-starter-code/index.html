@@ -7,7 +7,9 @@
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
+      .corGreen { font-size: 1.3em; font-weight: bold;color:green }
+      .corRed { font-size: 1.3em; font-weight: bold;color:red }
+      .corBlack { font-size: 1.3em; font-weight: bold;color:black }
     </style>
   </head>
 <body>
@@ -16,14 +18,14 @@
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
-             <input id="lunch-menu" type="text" ng-model="lunchMenu"
+             <input id="lunch-menu" type="text" ng-model="lunchMenu" ng-change="limparMessage()" 
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control">
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click ="checkIfToMuch()">Check If Too Much</button>
+             <button  ng-click ="checkIfToMuch()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="{{corMessage}}">
            {{sayMessage()}}
          </div>
      </div>
