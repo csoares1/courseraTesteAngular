@@ -15,9 +15,10 @@
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model="search">
     </div>
     <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="menu.logMenuSearch(search);" >Narrow It Down For Me!</button>
       <button class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
 
