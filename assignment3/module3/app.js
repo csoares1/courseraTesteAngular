@@ -85,7 +85,9 @@ function MenuSearchService() {
   }
 
   service.getMenuItens =function(){
-    return menuList;
+    var response = menuList;
+
+    return response;    
 }
 
 
