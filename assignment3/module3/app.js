@@ -23,6 +23,19 @@ function NarrowItDownDirective() {
   return ddo;
 }
 
+function verificaNull(string) {
+  var retorno = false;
+
+  if (string === undefined){
+    retorno = true;
+  }
+  if (string === ""){
+    retorno = true;
+  }
+
+  return retorno;
+}
+
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var menu = this;
@@ -44,7 +57,7 @@ function NarrowItDownController(MenuSearchService) {
   promise.then(function (response) {
   var stringSearch = search;
 
-  if (stringSearch !== undefined){
+  if (verificaNull(stringSearch) === false){
 
     var listMenu = response.data.menu_items;
 
