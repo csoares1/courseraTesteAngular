@@ -43,6 +43,14 @@
       <!--  <td><button class="btn btn-primary" ng-click="$ctrl.remove($index);" >Don't want this one!</button></td>
       </tr>
     </table>-->
+    <h3>Title: {{ menu.myTitle }}</h3>
+    <ol>
+      <li ng-repeat="item in menu.items">
+        {{ item.name }} of {{ item.description }}
+        <button ng-click="menu.removeItemMenu({index: $index});">Remove Item</button>
+      </li>
+    </ol>
+    
   <div>
     <found-items
       items="menu.items"
