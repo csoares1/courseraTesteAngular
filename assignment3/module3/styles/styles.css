@@ -30,6 +30,11 @@ input[type="text"] {
   width: 3em;
   height: 3em;
 }
+.warning {
+  font-style: italic;
+  color: red;
+  text-align: left;
+}
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);

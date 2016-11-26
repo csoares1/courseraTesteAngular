@@ -1,8 +1,20 @@
-<h3>Title: {{ menu.myTitle }}</h3>
-<ol>
-  <li ng-repeat="item in menu.items">
-    {{ item.name }} of {{ item.description }}
-    <button ng-click="menu.removeItemMenu({index: $index});">Remove Item</button>
-  </li>
-</ol>
-<div class="error" ng-transclude></div>
+
+<h3>{{ menu.myTitle }}</h3>
+<table width='100%' cellspading='5'>
+  <thead>
+    <tr bgcolor='#013766' style='font-size: 11px;font-family: Tahoma;color:white;'>
+     <th><p  width='35%'>Short Name</p></th/>
+     <th>Name</th>
+     <th>Description</th>
+     <th><p  width='35%'></p></th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="item in menu.items" bgcolor='#EDD3BE' style='font-size: 11px;font-family: Tahoma;color:black;'>
+    <td><p style='font-size:16px;'>{{ item.short_name }}</p></td>
+    <td><p style='font-size:16px;'>{{ item.name }}</p></td>
+    <td><p style='font-size:16px;'>{{ item.description }}</p></td>
+ <td><button  ng-click="menu.removeItemMenu($index);" >Don't want this one!</button></td>
+  </tr>
+  </tbody>
+</table>
