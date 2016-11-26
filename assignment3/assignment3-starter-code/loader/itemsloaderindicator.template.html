@@ -1,1 +1,7 @@
-<div class="loader"></div>
+
+  <ul>
+      <li ng-repeat="category in menu.categories | filter : search">
+        (<a href="" ng-click="menu.logMenuItems(category.short_name);">{{ category.short_name }}</a>)
+        {{ category.name }}
+      </li>
+  </ul>
