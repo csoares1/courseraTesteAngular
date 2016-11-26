@@ -41,7 +41,7 @@ function NarrowItDownController(MenuSearchService) {
   MenuSearchService.limparItems();
   promise.then(function (response) {
 
-  var listMenu = response.data.menu_items;
+  var listMenu = response.data;
 
   for (var i = 0; i < listMenu.length; i++) {
     var description = listMenu[i].description;
