@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "https://csoares1.github.io/courseraTesteAngular/assignment3/module3")
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
 .directive('foundItems', NarrowItDownDirective);
 
 function NarrowItDownDirective() {
@@ -41,7 +41,7 @@ function NarrowItDownController(MenuSearchService) {
   MenuSearchService.limparItems();
   promise.then(function (response) {
 
-  var listMenu = response.data;
+  var listMenu = response.data.menu_items;
 
   for (var i = 0; i < listMenu.length; i++) {
     var description = listMenu[i].description;
