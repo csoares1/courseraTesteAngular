@@ -37,22 +37,27 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   menu.getMatchedMenuItems = function (search) {
+
+
   var promise = MenuSearchService.getMenuItens();
   MenuSearchService.limparItems();
   promise.then(function (response) {
+  var stringSearch = search;
 
-  var listMenu = response.data.menu_items;
+  if (stringSearch !== undefined){
 
-  for (var i = 0; i < listMenu.length; i++) {
-    var description = listMenu[i].description;
-    var name = listMenu[i].name;
-    var short_name = listMenu[i].short_name;
-    if (description.toLowerCase().indexOf(search.toLowerCase()) !== -1) {
-       MenuSearchService.addItem(short_name,name,description);
-    }
-  };
+    var listMenu = response.data.menu_items;
 
-  menu.items = MenuSearchService.getItems();
+    for (var i = 0; i < listMenu.length; i++) {
+      var description = listMenu[i].description;
+      var name = listMenu[i].name;
+      var short_name = listMenu[i].short_name;
+      if (description.toLowerCase().indexOf(search.toLowerCase()) !== -1) {
+         MenuSearchService.addItem(short_name,name,description);
+      }
+    };
+
+    menu.items = MenuSearchService.getItems();
 
   if (menu.items.length === 0){
     menu.countListMenu = false;
@@ -62,7 +67,10 @@ function NarrowItDownController(MenuSearchService) {
       menu.warning = "";
   }
 
-//  MenuSearchService.limparItems();
+}else{
+  menu.countListMenu = false;
+  menu.warning = "Nothing found";
+}
 
  })
   .catch(function (error) {
