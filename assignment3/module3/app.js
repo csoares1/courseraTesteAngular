@@ -4,7 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+.constant('ApiBasePath', "https://csoares1.github.io/courseraTesteAngular/assignment3/module3")
 .directive('foundItems', NarrowItDownDirective);
 
 function NarrowItDownDirective() {
