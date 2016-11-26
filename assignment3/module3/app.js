@@ -41,7 +41,7 @@ function NarrowItDownController(MenuSearchService) {
   MenuSearchService.limparItems();
   promise.then(function (response) {
 
-  var listMenu = response.data;
+  var listMenu = response.data.menu_items;
 
   for (var i = 0; i < listMenu.length; i++) {
     var description = listMenu[i].description;
@@ -82,7 +82,7 @@ function MenuSearchService($http, ApiBasePath) {
   service.getMenuItens = function () {
     var response = $http({
       method: "GET",
-      url: (ApiBasePath + "/menu_items.json?category=A")
+      url: (ApiBasePath + "/menu_items.json")
     });
 
     return response;
