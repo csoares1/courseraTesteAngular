@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+    <div class="signup col-md-6">
+      <h1>Sign Up For The Newsletter</h1>
+      <fieldset>
+        <form name="formSignUp" novalidate>
+          <input type="text" name="menuNumber" placeholder="Menu number" autofocus
+            ng-model="signupCtrl.menunumber" ng-blur="signupCtrl.submitFavorites()" >
+          
+          <span
+            ng-if="signupCtrl.menunumbererror">
+            {{signupCtrl.menunumbererror}}
+          </span>
+
+         <br>
+
+          <input type="text" name="firstname" placeholder="First name"  ng-disabled="signupCtrl.invalid()"
+            ng-model="signupCtrl.firstname"
+            required
+            minlength="2"
+            ng-maxlength="10">
+
+            <span
+              ng-if="(formSignUp.firstname.$error.minlength || formSignUp.firstname.$error.required) && formSignUp.firstname.$touched">
+              Firstname must be at least 2 characters long
+            </span>
+            <span ng-if="formSignUp.firstname.$error.maxlength && formSignUp.firstname.$touched">
+              Firstname must not be longer than 10 characters
+            </span>
+            <br>
+
+            <input type="text" name="lastname" placeholder="Last name" ng-disabled="signupCtrl.invalid()"
+              ng-model="signupCtrl.lastname"
+              required
+              minlength="2"
+              ng-maxlength="20">
+
+              <span
+                ng-if="(formSignUp.lastname.$error.minlength || formSignUp.lastname.$error.required) && formSignUp.lastname.$touched">
+                Last Name must be at least 2 characters long
+              </span>
+              <span ng-if="formSignUp.lastname.$error.maxlength && formSignUp.lastname.$touched">
+                Last Name must not be longer than 20 characters
+              </span>
+              <br>
+
+          <input type="email" name="email" placeholder="Email" ng-disabled="signupCtrl.invalid()"
+            ng-model="signupCtrl.email"
+            required>
+            <span ng-if="formSignUp.email.$invalid && formSignUp.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+            <br>
+
+            <input type="text" name="phone" placeholder="Phone ###-####-####" ng-disabled="signupCtrl.invalid()"
+              ng-model="signupCtrl.phone" required
+              pattern="(\d{3})-(\d{4})-(\d{4})">
+            <span ng-if="formSignUp.phone.$invalid && formSignUp.phone.$touched">
+              Phone must be in the format ###-####-####.
+            </span>
+            <br>
+
+            <button class="btn btn-primary" ng-click="signupCtrl.submit()" ng-disabled="formSignUp.$invalid || signupCtrl.invalid()">Submit</button>
+          <!--   ng-disabled="!signupCtrl.valid()"
+            ng-click="signupCtrl.submit()">Submit</button>-->
+
+            <div class="formValid">
+              Form valid? {{ formSignUp.$valid }}
+            </div>
+            <div ng-if="signupCtrl.error" class="signup-error text-center">
+              {{signupCtrl.error}}
+            </div>
+            <div ng-if="signupCtrl.success" class="signup-success text-center">
+              {{signupCtrl.success}}
+            </div>
+        </form>
+      </fieldset>
+    </div>
+      <div class="col-md-6">
+        <br>
+        <h1>List of Dishes</h1>
+        <ul>
+           <li ng-repeat="item in signupCtrl.list">Short name {{item.shortname}} - Name {{item.name}}<button class="btn btn-default" ng-click="signupCtrl.removeItem($index);" ><span class="glyphicon glyphicon-ok"></span> remover</button></li>
+        </ul>
+      </div>
+  </div>
+</div>

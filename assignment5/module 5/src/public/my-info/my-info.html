@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div id="info"  ng-if="completed" >
+        <h1>My Info Registered</h1><br>
+            Firt Name: {{ firstname}} <br>
+            Last Name: {{ lastname}}<br>
+            Email: {{ email}} <br>
+            Phone: {{ phone }}<br>
+
+            <menu-item ng-repeat="menuItem in list"
+                       menu-item="menuItem">
+            </menu-item>
+
+      </div>
+      <div ng-if="incompleted">
+        Not Signed Up Yet.
+        <a ui-sref="public.signup">
+          <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs">Sign up Now!</a>
+      </div>
+   </div>
+</div>
