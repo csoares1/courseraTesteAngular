@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  </head>
+<body>
+
+
+   <div class="container" ng-controller='NarrowItDownController as menu'>
+  <h3>Narrow Down Your Chinese Menu Choice</h3>
+
+  </br>
+  </br>
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control" ng-model="search">
+      <button class="btn btn-primary" ng-click="menu.logMenuSearch(search);" >Narrow It Down For Me!</button>
+    </div>
+
+
+    <!-- Bonus loader (see Bonus section of the assignment) -->
+      <!-- <items-loader-indicator  my-Itens="menu.categories" ></items-loader-indicator>-->
+
+    <!-- found-items should be implemented as a component -->
+
+    <!--<found-items items="menu.items" on-remove="menu.removeItemMenu(index)">
+    <table ng-if="menu.countListMenu">
+      <thead>
+         <th>Short Name</th>
+         <th>Name</th>
+         <th>Description</th>
+         <th></th>
+      </thead>-->
+      <!--<tr ng-repeat="item in $ctrl.items">-->
+      <!--<tr ng-repeat="item in menu.items">
+        <td>{{ item.short_name }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description}}</td>-->
+      <!--  <td><button class="btn btn-primary" ng-click="$ctrl.remove($index);" >Don't want this one!</button></td>
+      </tr>
+    </table>-->
+    <h3>Title: {{ menu.myTitle }}</h3>
+    <ol>
+      <li ng-repeat="item in menu.items">
+        {{ item.name }} of {{ item.description }}
+        <button ng-click="menu.removeItemMenu({index: $index});">Remove Item</button>
+      </li>
+    </ol>
+
+  <div>
+    <found-items
+      items="menu.items"
+      title="{{menu.title}}"
+      on-remove="menu.removeItemMenu(index)">
+
+      <span class="warning"> {{menu.warning}}</span>
+
+    </found-items>
+
+
+  </div>
+
+</br>
+</br>
+</br>
+  <div>
+
+    <!--<ul>
+      <li ng-repeat="item in menu.items">
+        Name :{{ item.name }} Short Name :{{ item.short_name }} Description: {{ item.description}}
+          <button class="btn btn-primary" ng-click="menu.logMenuSearch(search);" >Don't want this one!</button>
+      </li>
+    </ul>
+-->
+  </div>
+</div>
+
+</body>
+</html>
